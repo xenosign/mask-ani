@@ -1,0 +1,43 @@
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    
+    article {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font: bold 100px/1 "ariral";
+        color: #fff;
+        
+        &.lower {
+            background-color: pink;
+        }
+    
+        &.upper {
+            background-color: aqua;
+            -webkit-mask: url(../src/mask1.png);
+            -webkit-mask-size: 2300% 100%;
+            -webkit-mask-position: 0% 0%;
+
+            &.on {
+                animation: maskPlay 1.4s steps(22) forwards;
+            }
+        }
+    }
+}
+
+@keyframes maskPlay {
+    0% {
+        -webkit-mask-position: 0% 0%;
+    }
+
+    100% {
+        -webkit-mask-position: 100% 0%;
+    }
+}   
