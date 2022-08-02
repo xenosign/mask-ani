@@ -30,6 +30,7 @@ nav {
 }
 nav h1 {
   position: absolute;
+  display: inline-block;
   top: 12%;
   left: 50px;
   font: 500 40px/1.3 "Orbitron";
@@ -39,10 +40,10 @@ nav h1 {
 nav h1::after {
   content: "";
   display: block;
-  width: 310px;
+  width: 100%;
   height: 2px;
   background-color: #fff;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 nav #nav {
   width: 100%;
@@ -54,13 +55,13 @@ nav #nav li {
   width: 450px;
   padding: 30px 50px;
   position: relative;
-  overflow: hidden;
   opacity: 0.4;
   cursor: pointer;
-  transition: transform 1.4s, opacity 1.4s;
+  transition: 1.4s;
   transform-origin: left center;
 }
 nav #nav li h2 {
+  display: inline-block;
   font: 600 16px/1 "Orbitron";
   color: #fff;
   letter-spacing: 1px;
@@ -82,12 +83,12 @@ nav #nav li p {
   opacity: 0.7;
 }
 nav #nav li.on {
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
   transform: scale(1.3);
   opacity: 1;
 }
 nav #nav li.on h2::after {
-  width: 150px;
+  width: 100%;
 }
 
 section {
@@ -135,15 +136,14 @@ section article .slogan h2 {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 section article .slogan h2 .inner {
   font: normal 150px/1 "Permanent Marker";
   color: #fff;
-  position: relative;
   transform: scaleY(1.25);
   opacity: 0;
-  transition: opacity 0.2s 0.5s;
+  transition: 0.2s 0.5s;
 }
 section article .slogan h2::after {
   content: "";
@@ -154,45 +154,22 @@ section article .slogan h2::after {
   position: absolute;
   top: 0px;
   right: -100%;
-  transition: right ease-in-out 1s;
+  transition: ease-in-out 1s;
 }
-section article .slogan .p1 {
-  display: inline-block;
-  overflow: hidden;
-  position: relative;
-  margin-right: 4px;
-}
-section article .slogan .p1 .inner {
-  font: 24px/1 "Permanent Marker";
-  color: #fff;
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.2s 0.8s;
-}
-section article .slogan .p1::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  position: absolute;
-  top: 0px;
-  right: -100%;
-  transition: right ease-in-out 1s 0.3s;
-}
+section article .slogan .p1,
 section article .slogan .p2 {
   display: inline-block;
   overflow: hidden;
   position: relative;
-  margin-right: 4px;
 }
+section article .slogan .p1 .inner,
 section article .slogan .p2 .inner {
   font: 24px/1 "Permanent Marker";
   color: #fff;
-  position: relative;
   opacity: 0;
-  transition: opacity 0.2s 1.1s;
+  transition: 0.2s 0.8s;
 }
+section article .slogan .p1::after,
 section article .slogan .p2::after {
   content: "";
   display: block;
@@ -202,7 +179,13 @@ section article .slogan .p2::after {
   position: absolute;
   top: 0px;
   right: -100%;
-  transition: right ease-in-out 1s 0.6s;
+  transition: ease-in-out 1s 0.3s;
+}
+section article .slogan .p2 .inner {
+  transition: 0.2s 1.1s;
+}
+section article .slogan .p2::after {
+  transition: ease-in-out 1s 0.6s;
 }
 section article.on {
   z-index: 3;
@@ -211,10 +194,14 @@ section article.on .slogan::before {
   opacity: 1;
   transform: rotateY(220deg);
 }
-section article.on .slogan h2 .inner, section article.on .slogan .p1 .inner, section article.on .slogan .p2 .inner {
+section article.on .slogan h2 .inner,
+section article.on .slogan .p1 .inner,
+section article.on .slogan .p2 .inner {
   opacity: 1;
 }
-section article.on .slogan h2::after, section article.on .slogan .p1::after, section article.on .slogan .p2::after {
+section article.on .slogan h2::after,
+section article.on .slogan .p1::after,
+section article.on .slogan .p2::after {
   right: 100%;
 }
 section article.lower {
